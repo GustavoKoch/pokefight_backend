@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/pokemon', (req, res) => {
-    console.log("Hola");
+    /* console.log("Hola"); */
     res.json(pokemonslist);
   })
 
