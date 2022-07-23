@@ -82,15 +82,22 @@ app.post("/ranking/addNew", async (req, res) => {
 
 
 //Patch item
-app.put("/ranking/:pokeName", async (req, res) => {
-  const { pokeName } = req.params;
-  const rankingItem = await Ranking.find({"poke_name":pokeName});  
+app.put("/ranking/:winLose/:pokeName", async (req, res) => {
 
+  const { pokeName, winLose } = req.params;
+   
+  const updation=(winLose)=>{
+    let update="";
+    if (winLose==="win"){
+      update={"$inc": { "wins": 1, "points": 1 } }, { "upsert": true } ;
+    }else{
+      update={"$inc": { "loses": 1, "points": -1 } }, { "upsert": true } ;
+    }
+    return update;
+  }
+  
   try {
-    const updatedItemRanking = await Ranking.findOneAndUpdate(rankingItem._id, req.body, {
-    new: false,
-    runValidators: true,
-    });
+    const updatedItemRanking = await Ranking.updateOne({"poke_name":pokeName},updation(winLose), { "upsert": true }  );
     console.log(updatedItemRanking);
     if (!updatedItemRanking)
     return res
@@ -102,12 +109,8 @@ app.put("/ranking/:pokeName", async (req, res) => {
     (error) => console.log(error.message);
 }
   
-});
-    
-  
-
-    
-
+});  
+      
 
 app.listen(port, () => {
   console.log(`Pokemons app listening on port ${port}`)

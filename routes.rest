@@ -52,4 +52,13 @@ Content-Type:application/json
 }
 ]
 
-       
+### Change Ranking based on this URL
+PUT http://localhost:3001/ranking/win/Meltan
+Content-Type:application/json
+
+### Change Ranking based on this URL
+PUT http://localhost:3001/ranking/lose/Meltan
+Content-Type:application/json
+
+### Get one by name from Ranking
+GET http://localhost:3001/ranking/Meltan
