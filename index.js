@@ -42,7 +42,7 @@ app.get("/pokemon/:id", (req, res) => {
 //GET Ranking
 app.get("/ranking", async (req, res) => {
   try {
-      const ranking = await Ranking.find({}).sort({"wins":-1});
+      const ranking = await Ranking.find({}).sort({"points":-1});
       res.json(ranking);
   } catch {
       (error) => console.log(error.message);
