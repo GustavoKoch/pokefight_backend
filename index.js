@@ -48,6 +48,16 @@ app.get("/ranking", async (req, res) => {
       (error) => console.log(error.message);
   }
   });
+
+//GET Ranking
+app.get("/ranking/w&l/:winner/:loser", async (req, res) => {
+  try {
+      const ranking = await Ranking.find({}).sort({"points":-1});
+      res.json(ranking);
+  } catch {
+      (error) => console.log(error.message);
+  }
+  });
 //Get one item of the Ranking for modifications
 app.get("/ranking/:pokeName", async (req, res) => {
   const {pokeName } = req.params;    
