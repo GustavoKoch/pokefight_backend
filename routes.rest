@@ -12,20 +12,20 @@ Content-Type:application/json
 
 [
 {
-    "rank":"3",
+    "rank":3,
     "poke_name":"Poipole",
     "type":"['Poison']", 
-    "wins":"10",
-    "loses":"5",
-    "points":"5"
+    "wins":10,
+    "loses":5,
+    "points":5
 },
 {
-    "rank":"4",
+    "rank":4,
     "poke_name":"Marshadow",
     "type":"['Fighting', 'Ghost']", 
-    "wins":"10",
-    "loses":"5",
-    "points":"5"
+    "wins":10,
+    "loses":5,
+    "points":5
 }
 ]
 
@@ -35,7 +35,7 @@ Content-Type:application/json
 
 [
 {
-    "rank":"1",
+    "rank":1,
     "poke_name":"Meltan",
     "type":"['Melmetal']", 
     "wins":"15",
@@ -43,12 +43,12 @@ Content-Type:application/json
     "points":"10"
 },
 {
-    "rank":"2",
+    "rank":2,
     "poke_name":"Meltan2",
     "type":"['Melmetal']", 
-    "wins":"10",
-    "loses":"5",
-    "points":"5"
+    "wins":10,
+    "loses":5,
+    "points":5
 }
 ]
 

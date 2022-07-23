@@ -42,7 +42,7 @@ app.get("/pokemon/:id", (req, res) => {
 //GET Ranking
 app.get("/ranking", async (req, res) => {
   try {
-      const ranking = await Ranking.find({});
+      const ranking = await Ranking.find({}).sort({"wins":1});
       res.json(ranking);
   } catch {
       (error) => console.log(error.message);
@@ -104,7 +104,7 @@ app.put("/ranking/:winLose/:pokeName", async (req, res) => {
         .status(404)
         .send("This item does not exist in the Ranking list, and has to be created before");
 
-    const updatedItem = await Ranking.find({"poke_name":pokeName })
+    const updatedItem = await Ranking.find().sort({"points":-1})
     res.json(updatedItem).send("Item patched succesfully!");
 } catch {
     (error) => console.log(error.message);
